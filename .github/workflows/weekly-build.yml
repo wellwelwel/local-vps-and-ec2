@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        VERSION: ['18.04', '20.04', '22.04', '23.10', 'latest']
+        VERSION: ['18.04', '20.04', '22.04', '23.04', '23.10', 'latest']
     steps:
       - name: ➕ Actions - Set up Docker QEMU
         uses: docker/setup-buildx-action@v3
