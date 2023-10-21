@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "build:18.04": "docker build --build-arg VERSION=18.04 -t wellwelwel/vps:18.04 .",
+    "build:20.04": "docker build --build-arg VERSION=20.04 -t wellwelwel/vps:20.04 .",
+    "build:22.04": "docker build --build-arg VERSION=22.04 -t wellwelwel/vps:22.04 .",
+    "build:23.04": "docker build --build-arg VERSION=23.04 -t wellwelwel/vps:23.04 .",
+    "build:23.10": "docker build --build-arg VERSION=23.10 -t wellwelwel/vps:23.10 .",
+    "build:latest": "docker build --build-arg VERSION=latest -t wellwelwel/vps:latest .",
+    "build": "npm run build:18.04 && npm run build:20.04 && npm run build:22.04 && npm run build:23.04 && npm run build:23.10 && npm run build:latest",
+    "run": "docker run --name vps-test --rm -p 3000:80 wellwelwel/vps:latest",
+    "exec": "docker exec -it vps-test /bin/bash",
+    "prepush": "npm run build",
+    "push": "DOCKER_CLI_EXPERIMENTAL=enabled docker buildx ls | grep -q php-builder || docker buildx create --name php-builder --use; docker buildx use php-builder && docker buildx build --platform linux/amd64,linux/arm64 -t wellwelwel/vps:latest --push ."
+  }
+}
