@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: wellwelwel/vps:${{ matrix.ubuntu_version }}
+          tags: wellwelwel/vps:${{ matrix.VERSION }}
           platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           build-args: VERSION=${{ matrix.VERSION }}

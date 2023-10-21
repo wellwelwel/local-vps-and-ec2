@@ -10,6 +10,6 @@
     "run": "docker run --name vps-test --rm -p 3000:80 wellwelwel/vps:latest",
     "exec": "docker exec -it vps-test /bin/bash",
     "prepush": "npm run build",
-    "push": "DOCKER_CLI_EXPERIMENTAL=enabled docker buildx ls | grep -q php-builder || docker buildx create --name php-builder --use; docker buildx use php-builder && docker buildx build --platform linux/amd64,linux/arm64 -t wellwelwel/vps:latest --push ."
+    "push": "DOCKER_CLI_EXPERIMENTAL=enabled docker buildx ls | grep -q vps-builder || docker buildx create --name vps-builder --use; docker buildx use vps-builder && docker buildx build --platform linux/amd64,linux/arm64 -t wellwelwel/vps:latest --push ."
   }
 }
