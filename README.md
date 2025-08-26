@@ -10,7 +10,7 @@ A Docker image based on VPS and EC2 and a totally no-cost option to develop and 
 docker pull wellwelwel/vps:latest
 ```
 
-- Also: `18.04`, `20.04`, `22.04`, `23.04` and `23.10`.
+- Also: `18.04`, `20.04`, `22.04`, and `24.04`.
 
 ---
 
